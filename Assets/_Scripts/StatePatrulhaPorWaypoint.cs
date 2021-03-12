@@ -23,14 +23,13 @@ public class StatePatrulhaPorWaypoint : State {
         waypoints[1].position = GameObject.FindWithTag("Player").transform.position;
     }
 
-    public void Update() {
+    public override void Update() {
         if (Vector3.Distance(transform.position, waypoints[1].position) > 0.1f) {
             
             Vector3 direction = waypoints[1].position - transform.position;
             direction.Normalize();
             steerable.Thrust(direction.x, direction.y);
         } else {
-            Debug.Log("to fora");
             waypoints[1].position = GameObject.FindWithTag("Player").transform.position;
         }
     }

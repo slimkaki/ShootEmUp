@@ -15,13 +15,13 @@ public class ShotEnemyBehaviour : SteerableBehaviour {
         Destroy(gameObject);
     }
 
-    void Start() {
-        
-    }
-
     void Update() {
         Vector3 posPlayer = GameObject.FindWithTag("Player").transform.position;
         direction = (posPlayer - transform.position).normalized;
+        float dist = Vector2.Distance(posPlayer, transform.position);
+        if (dist > 15.0f) {
+            Destroy(gameObject);
+        }
         Thrust(direction.x, direction.y);
     }
 

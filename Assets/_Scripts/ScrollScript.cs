@@ -47,7 +47,7 @@ public class ScrollScript : MonoBehaviour {
                 firstChild.transform.SetAsLastSibling();
                 firstChild.transform.position = new Vector3(lastChild.transform.position.x + halfObjectWidth*2,
                                                             lastChild.transform.position.y, lastChild.transform.position.z);
-                firstChild.transform.Rotate(0.0f, 0.0f, 0.0f);
+                firstChild.transform.Rotate(0.0f, 180.0f, 0.0f);
             } else if (transform.position.x - screenBounds.x < firstChild.transform.position.x - halfObjectWidth) {
                 lastChild.transform.SetAsFirstSibling();
                 lastChild.transform.position = new Vector3(firstChild.transform.position.x - halfObjectWidth*2,

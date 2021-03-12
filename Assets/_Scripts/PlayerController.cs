@@ -5,15 +5,15 @@ using UnityEngine;
 public class PlayerController : SteerableBehaviour, IShooter, IDamageable {
 
     Animator animator;
-    private int lifes;
     public GameObject bullet;
     public float shootDelay = 0.0f;
     private float _lastShootTimestamp = 0.0f;
     public AudioClip shootSFX;
+    public GameManager gm;
 
-    private void start() {
+    public void Start() {
         animator = GetComponent<Animator>();
-        lifes = 10;
+        gm = GameManager.GetInstance();
     }
   
     void FixedUpdate() {
@@ -22,6 +22,10 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable {
 
         if (Input.GetAxisRaw("Jump") != 0) {
             Shoot();
+        }
+
+        if ((transform.position.y > 4.5f && yInput > 0) || (transform.position.y < -4.9f &&yInput < 0)) {
+            yInput = 0;
         }
 
         Thrust(xInput, yInput);
@@ -41,12 +45,12 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable {
     }
 
     public void TakeDamage() {
-        lifes--;
-        if (lifes <= 0) Die();
+        gm.vidas--;
+        if (gm.vidas <= 0) Die();
     }
 
     public void Die() {
-        // Destroy(gameObject);
+        Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {

@@ -6,6 +6,11 @@ public class EnemyController : SteerableBehaviour, IShooter, IDamageable {
 
     public AudioClip shootSFX;
     public GameObject tiro;
+    public GameManager gm;
+
+    void Start() {
+        gm = GameManager.GetInstance();
+    }
 
     public void Shoot() {
         AudioManager.PlaySFX(shootSFX);
@@ -13,6 +18,7 @@ public class EnemyController : SteerableBehaviour, IShooter, IDamageable {
     }
 
     public void TakeDamage() {
+        gm.pontos += 10;
         Die();
     }
 
