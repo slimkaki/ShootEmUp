@@ -6,8 +6,12 @@ public class StatePatrulhaPorWaypoint : State {
     
     public Transform[] waypoints;
     SteerableBehaviour steerable;
+
+    GameManager gm;
+    
     public override void Awake() {
         base.Awake();
+        gm = GameManager.GetInstance();
         //Criamos e populamos uma nova transição
         Transition ToAtacando = new Transition();
         ToAtacando.condition = new ConditionDistLT(transform, GameObject.FindWithTag("Player").transform, 2.0f);
@@ -24,6 +28,7 @@ public class StatePatrulhaPorWaypoint : State {
     }
 
     public override void Update() {
+        if (gm.gameState != GameManager.GameState.GAME) return; 
         if (Vector3.Distance(transform.position, waypoints[1].position) > 0.1f) {
             
             Vector3 direction = waypoints[1].position - transform.position;

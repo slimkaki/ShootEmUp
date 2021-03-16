@@ -2,21 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShotBehaviour : SteerableBehaviour {
+public class ShotBackwardsBehaviour : SteerableBehaviour {
 
-    public GameManager gm;
-
-    void Start() {
-        gm = GameManager.GetInstance();
-    }
-    
     private void Update() {
-        if (gm.gameState != GameManager.GameState.GAME) return;
         float dist = Vector2.Distance(GameObject.FindWithTag("Player").transform.position, transform.position);
         if (dist > 15.0f) {
             Destroy(gameObject);
         }
-        Thrust(1, 0);
+        Thrust(-1, 0);
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {

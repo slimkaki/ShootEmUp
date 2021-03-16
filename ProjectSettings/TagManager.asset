@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Inimigos
   - BG
+  - AsteroidSpawner
+  - CommonEnemy
+  - Asteroide
   layers:
   - Default
   - TransparentFX
