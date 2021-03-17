@@ -8,6 +8,7 @@ public class AlienEnemyController : SteerableBehaviour, IShooter, IDamageable {
     public GameObject tiro;
     public GameManager gm;
     private Vector3 prevPosition;
+    public GameObject floatingPoints;
 
     void Start() {
         gm = GameManager.GetInstance();
@@ -21,6 +22,7 @@ public class AlienEnemyController : SteerableBehaviour, IShooter, IDamageable {
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.CompareTag("Player") || collision.CompareTag("Bullet")) {
+            Instantiate(floatingPoints, transform.position, Quaternion.identity);
             gm.pontos += 10;
             Die();
         }

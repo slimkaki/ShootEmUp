@@ -14,7 +14,7 @@ public class AlienEnemySpawner : SteerableBehaviour {
 
     void StartSpawn() {
         for (int i = 0; i < 2; i++) {
-            float randomX = Random.Range(20.0f, 30.0f);
+            float randomX = Random.Range(25.0f, 35.0f);
             float randomY = Random.Range(-5.0f, 5.0f);
             Instantiate(Alien, new Vector3(GameObject.FindWithTag("Player").transform.position.x + randomX,
                                            GameObject.FindWithTag("Player").transform.position.y + randomY, 0.0f), 

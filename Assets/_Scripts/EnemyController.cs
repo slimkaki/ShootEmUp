@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyController : SteerableBehaviour, IShooter, IDamageable {
 
@@ -8,6 +9,7 @@ public class EnemyController : SteerableBehaviour, IShooter, IDamageable {
     public GameObject tiro;
     public GameManager gm;
     private float last_shoot;
+    public GameObject floatingPoints;
 
     void Start() {
         gm = GameManager.GetInstance();
@@ -15,13 +17,14 @@ public class EnemyController : SteerableBehaviour, IShooter, IDamageable {
     }
 
     public void Shoot() {
-        if (Time.time - last_shoot <= 1.0f) return; 
+        if (Time.time - last_shoot <= 1.0f) return;
         AudioManager.PlaySFX(shootSFX);
         Instantiate(tiro, transform.position, Quaternion.identity);
         last_shoot = Time.time;
     }
 
     public void TakeDamage() {
+        Instantiate(floatingPoints, transform.position, Quaternion.identity);
         gm.pontos += 10;
         Die();
     }

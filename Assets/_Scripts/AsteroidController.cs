@@ -9,6 +9,7 @@ public class AsteroidController : SteerableBehaviour, IDamageable {
     public GameManager gm;
     private int speed;
     private float rotSpeed;
+    public GameObject floatingPoints;
 
     void Start() {
         gm = GameManager.GetInstance();
@@ -29,6 +30,7 @@ public class AsteroidController : SteerableBehaviour, IDamageable {
     }
 
     public void TakeDamage() {
+        Instantiate(floatingPoints, transform.position, Quaternion.identity);
         gm.pontos += 5;
         Die();
     }

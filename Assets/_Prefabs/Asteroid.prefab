@@ -145,3 +145,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   td: {fileID: 11400000, guid: 2bebe8bf4dd784a8f8ef9d6dad018f15, type: 2}
   asteroidSFX: {fileID: 0}
+  floatingPoints: {fileID: 7264248880927684426, guid: 709bfba4944b8458fb892487fe00275d,
+    type: 3}

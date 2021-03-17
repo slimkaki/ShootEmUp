@@ -240,6 +240,8 @@ MonoBehaviour:
   td: {fileID: 11400000, guid: 2bebe8bf4dd784a8f8ef9d6dad018f15, type: 2}
   shootSFX: {fileID: 8300000, guid: f1c19a277dedb413f96967f82e56c1c8, type: 3}
   tiro: {fileID: 660363997872120598, guid: edfa106aeb56f4dd3b99555505662294, type: 3}
+  floatingPoints: {fileID: 7264248880927684426, guid: 82464d9eda1594653983addb48df7e7e,
+    type: 3}
 --- !u!1 &7010548724774805141
 GameObject:
   m_ObjectHideFlags: 0
