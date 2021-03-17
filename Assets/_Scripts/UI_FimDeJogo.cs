@@ -11,10 +11,15 @@ public class UI_FimDeJogo : MonoBehaviour {
     private void OnEnable() {
         gm = GameManager.GetInstance();
 
-        if(gm.vidas > 0) {
-            message.text = "Você Ganhou!!!";
+        if(gm.win) {
+            message.text = $"Congratulations! You made it!\nTotal Points: {gm.pontos}";
         } else {
-            message.text = "Você Perdeu!!";
+            if (gm.vidas <= 0) {
+                message.text = $"You died!\nTotal Points: {gm.pontos}";
+            } else {
+                message.text = $"You lost!\nTotal Points: {gm.pontos}";
+            }
+            
         }
     }
 

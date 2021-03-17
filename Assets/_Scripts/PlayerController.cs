@@ -67,8 +67,7 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable {
     }
 
     public void TakeDamage() {
-        gm.vidas--;
-        if (gm.vidas <= 0) Die();
+        
     }
 
     public void Die() {
@@ -76,9 +75,12 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable {
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.CompareTag("Inimigos") || collision.CompareTag("Asteroide") ) {
+        if (collision.CompareTag("Inimigos") || collision.CompareTag("Asteroide")
+            || collision.CompareTag("EnemyBullet") || collision.CompareTag("AlienEnemy")) {
             Destroy(collision.gameObject);
-            TakeDamage();
+            
         }
+        gm.vidas--;
+        if (gm.vidas <= 0) Die();
     }    
 }

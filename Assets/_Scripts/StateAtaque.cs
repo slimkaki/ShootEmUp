@@ -12,7 +12,7 @@ public class StateAtaque : State {
         gm = GameManager.GetInstance();
 
         Transition ToPatrulha = new Transition();
-        ToPatrulha.condition = new ConditionDistGT(transform, GameObject.FindWithTag("Player").transform, 2.0f);
+        ToPatrulha.condition = new ConditionDistGT(transform, GameObject.FindWithTag("Player").transform, 1.0f);
         ToPatrulha.target = GetComponent<StatePatrulhaPorWaypoint>();
 
         // Adicionamos a transição em nossa lista de transições
@@ -29,7 +29,6 @@ public class StateAtaque : State {
     private float _lastShootTimestamp = 0.0f;
     public override void Update() {
         if (gm.gameState != GameManager.GameState.GAME) return; 
-        // TODO: Movimentação quando atacando
 
         if (Time.time - _lastShootTimestamp < shootDelay) return;
         _lastShootTimestamp = Time.time;

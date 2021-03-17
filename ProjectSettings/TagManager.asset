@@ -9,6 +9,9 @@ TagManager:
   - AsteroidSpawner
   - CommonEnemy
   - Asteroide
+  - Bullet
+  - EnemyBullet
+  - AlienEnemy
   layers:
   - Default
   - TransparentFX

@@ -8,8 +8,11 @@ public class ShotEnemyBehaviour : SteerableBehaviour {
 
     public GameManager gm;
 
+    private float start_time;
+
     void Start() {
         gm = GameManager.GetInstance();
+        start_time = Time.time;
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
@@ -26,7 +29,7 @@ public class ShotEnemyBehaviour : SteerableBehaviour {
         Vector3 posPlayer = GameObject.FindWithTag("Player").transform.position;
         direction = (posPlayer - transform.position).normalized;
         float dist = Vector2.Distance(posPlayer, transform.position);
-        if (dist > 15.0f) {
+        if (dist > 15.0f || Time.time - start_time > 15.0f) {
             Destroy(gameObject);
         }
         Thrust(direction.x, direction.y);

@@ -71,12 +71,11 @@ GameObject:
   m_Component:
   - component: {fileID: 7010548724216052242}
   - component: {fileID: 7010548724216052251}
-  - component: {fileID: 7010548724216052244}
-  - component: {fileID: 7010548724216052245}
-  - component: {fileID: 7010548724216052246}
-  - component: {fileID: 7010548724216052247}
-  - component: {fileID: 7010548724216052240}
-  - component: {fileID: 7010548724216052241}
+  - component: {fileID: 4635038064197060694}
+  - component: {fileID: 6360264774184614115}
+  - component: {fileID: 101540985347390133}
+  - component: {fileID: 1516909144711835640}
+  - component: {fileID: 4849530967340578806}
   m_Layer: 0
   m_Name: EnemySprite
   m_TagString: Inimigos
@@ -150,7 +149,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &7010548724216052244
+--- !u!114 &4635038064197060694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7010548724216052243}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae65ef37cda90410ab561e1377736d63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootDelay: 1
+--- !u!114 &6360264774184614115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7010548724216052243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29658ca004f4b4207aa9c08d16282188, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints:
+  - {fileID: 7010548724774805140}
+  - {fileID: 7010548723119573882}
+  distance: 1
+--- !u!50 &101540985347390133
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -171,7 +199,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &7010548724216052245
+--- !u!61 &1516909144711835640
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -184,7 +212,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.026412249, y: -0.011319399}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -195,49 +223,9 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8868048, y: 0.8113408}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &7010548724216052246
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7010548724216052243}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae65ef37cda90410ab561e1377736d63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shootDelay: 2
---- !u!114 &7010548724216052247
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7010548724216052243}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29658ca004f4b4207aa9c08d16282188, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waypoints:
-  - {fileID: 7010548724774805140}
-  - {fileID: 7010548723119573882}
---- !u!114 &7010548724216052240
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7010548724216052243}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d511d6fd12d1b4982b5cf348f2438184, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &7010548724216052241
+--- !u!114 &4849530967340578806
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -249,7 +237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 462343d7dc28c934e848f8bf6bdf64b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  td: {fileID: 11400000, guid: 388701daaa55c334e9f5368eb44c325e, type: 2}
+  td: {fileID: 11400000, guid: 2bebe8bf4dd784a8f8ef9d6dad018f15, type: 2}
   shootSFX: {fileID: 8300000, guid: f1c19a277dedb413f96967f82e56c1c8, type: 3}
   tiro: {fileID: 660363997872120598, guid: edfa106aeb56f4dd3b99555505662294, type: 3}
 --- !u!1 &7010548724774805141

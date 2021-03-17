@@ -9,7 +9,7 @@ public class ShotBackwardsBehaviour : SteerableBehaviour {
         if (dist > 15.0f) {
             Destroy(gameObject);
         }
-        Thrust(-1, 0);
+        Thrust(-2, 0);
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {

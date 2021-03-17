@@ -13,6 +13,6 @@ public class UI_Vidas : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        textComp.text = $"Vidas: {gm.vidas}";
+        textComp.text = $"HP: {gm.vidas}";
     }
 }

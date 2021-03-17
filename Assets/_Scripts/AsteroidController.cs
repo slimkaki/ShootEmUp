@@ -21,6 +21,13 @@ public class AsteroidController : SteerableBehaviour, IDamageable {
     //     Instantiate(tiro, transform.position, Quaternion.identity);
     // }
 
+    private void Reset() {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Asteroide");
+        foreach(GameObject enemy in enemies) GameObject.Destroy(enemy);
+        Start();
+        gm.ResetFlag = false;
+    }
+
     public void TakeDamage() {
         gm.pontos += 5;
         Die();
@@ -32,6 +39,7 @@ public class AsteroidController : SteerableBehaviour, IDamageable {
 
     private void FixedUpdate() {
         if (gm.gameState != GameManager.GameState.GAME) return;
+        if (gm.ResetFlag) { Reset(); return;}
         if (gameObject.transform.position.x < GameObject.FindWithTag("Player").transform.position.x - 25.0f) {
             Die();
         }
